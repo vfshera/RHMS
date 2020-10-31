@@ -4,41 +4,43 @@
             <li class="active">
                 <a href="/home"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
             </li>
-            <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="menu-icon fa fa-cogs"></i>
-                    Projects
-                </a>
-                <ul class="sub-menu children dropdown-menu">
-                    <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
-                    <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
+           @admin
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-cogs"></i>
+                        Projects
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
 
-            <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="menu-icon fa fa-cogs"></i>
-                    Engineers
-                </a>
-                <ul class="sub-menu children dropdown-menu">
-                    <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
-                    <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-cogs"></i>
+                        Engineers
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
 
-            <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="menu-icon fa fa-cogs"></i>
-                    Contractors
-                </a>
-                <ul class="sub-menu children dropdown-menu">
-                    <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
-                    <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-cogs"></i>
+                        Contractors
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="#">Add</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="#">All</a></li>
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
+            @endadmin
         </ul>
     </div>
 </nav>
