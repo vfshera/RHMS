@@ -32,8 +32,6 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="form-assets/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="form-assets/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="form-assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="form-assets/css/main.css">
     {{--   end form assets--}}
@@ -57,11 +55,6 @@
 <script src="form-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 <script src="form-assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="form-assets/vendor/daterangepicker/moment.min.js"></script>
-<script src="form-assets/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="form-assets/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="form-assets/js/main.js"></script>
 {{--END FORM SCRIPTS--}}

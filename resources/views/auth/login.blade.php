@@ -7,7 +7,7 @@
                 <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('login') }}">
                     @csrf
 					<span class="login100-form-title p-b-32">
-						Account Login
+						<a href="/"><i class="ti-arrow-left mr-5"></i></a>Account Login
 					</span>
 
                     <span class="txt1 p-b-11">

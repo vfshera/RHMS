@@ -6,26 +6,27 @@
             <li class="@if (\Request::is('home')) active @endif">
                 <a href="/home"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
             </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle "
-                       data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false">
-                        <i class="menu-icon fa  fa-gavel"></i>
-                        Projects
-                    </a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li  class="@if (\Request::is('create-project')) active @endif"><i class="fa  fa-plus "></i>
-                            <a href="/create-project">Add</a>
+
+            <li>
+                <a href="#" class="dropdown-toggle "
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="menu-icon fa  fa-gavel"></i>
+                    Projects
+                </a>
+            </li>
+
+                        <li  class="@if (\Request::is('create-project')) active @endif flex-row ml-3 align-items-center">
+                            <i class="fa  fa-plus mr-2"></i>
+                            <a href="/create-project">Create Project</a>
                         </li>
-                        <li  class="@if (\Request::is('projects')) active @endif">
-                            <i class="ti-eye action-menu">
+
+                        <li  class="@if (\Request::is('projects')) active @endif flex-row ml-3 align-items-center">
+                            <i class="ti-eye action-menu mr-2">
 
                             </i><a href="/projects">All</a>
                         </li>
-
-                    </ul>
-                </li>
 
                 <li class="@if (\Request::is('engineers')) active @endif">
                     <a href="/engineers" >

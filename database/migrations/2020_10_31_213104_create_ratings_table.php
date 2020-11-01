@@ -17,6 +17,7 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->string('project_id');
             $table->integer('rating');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
