@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Engineer;
+use App\Rating;
 use Illuminate\Http\Request;
 
-class EngineerController extends Controller
+class RatingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class EngineerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Engineer  $engineer
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Engineer $engineer)
+    public function show(Rating $rating)
     {
         //
     }
@@ -52,10 +52,10 @@ class EngineerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Engineer  $engineer
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Engineer $engineer)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -64,10 +64,10 @@ class EngineerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Engineer  $engineer
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Engineer $engineer)
+    public function update(Request $request, Rating $rating)
     {
         //
     }
@@ -75,10 +75,10 @@ class EngineerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Engineer  $engineer
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Engineer $engineer)
+    public function destroy(Rating $rating)
     {
         //
     }

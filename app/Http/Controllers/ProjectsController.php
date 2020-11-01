@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Application;
+use App\Project;
 use Illuminate\Http\Request;
 
-class ApplicationController extends Controller
+class ProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.projects.all');
     }
 
     /**
@@ -24,7 +24,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.projects.create');
     }
 
     /**
@@ -41,21 +41,32 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Application  $application
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $application)
+
+    public function applied(Request $request)
     {
-        //
+        return view('pages.projects.applied');
+    }
+
+    public function completed(Request $request)
+    {
+        return view('pages.projects.completed');
+    }
+
+    public function show(Project $project)
+    {
+        return view('pages.projects.assign');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Application  $application
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Application $application)
+    public function edit(Project $project)
     {
         //
     }
@@ -64,10 +75,10 @@ class ApplicationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Application  $application
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Application $application)
+    public function update(Request $request, Project $project)
     {
         //
     }
@@ -75,10 +86,10 @@ class ApplicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Application  $application
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $application)
+    public function destroy(Project $project)
     {
         //
     }

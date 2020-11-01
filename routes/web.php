@@ -19,4 +19,40 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['auth']], function (){
+
+    Route::get('/profile', 'HomeController@profile');
+
+    Route::get('/applied-projects', 'ProjectsController@applied');
+    Route::get('/completed-projects', 'ProjectsController@completed');
+
+    //admin routes
+    Route::group(['middleware' => ['access:0']], function(){
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/create-project', 'ProjectsController@create');
+        Route::get('/assign-project', 'ProjectsController@show');
+        Route::get('/projects', 'ProjectsController@index');
+
+        Route::get('/engineers', 'EngineersController@index');
+        Route::get('/contractors', 'ContractorsController@index');
+    });
+
+
+    //engineers routes
+    Route::group(['middleware' => ['access:1']],function(){
+        Route::get('/engineer-projects', 'EngineersController@available');
+    });
+
+    //contractors routes
+    Route::group(['middleware' => ['access:2']], function(){
+        Route::get('/contactor-projects', 'ContractorsController@available');
+    });
+
+    //roadusers routes
+    Route::group(['middleware' => ['access:3']], function(){
+
+    });
+
+});
