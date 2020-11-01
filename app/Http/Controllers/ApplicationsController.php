@@ -44,6 +44,12 @@ class ApplicationsController extends Controller
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
      */
+
+    public function applied(Request $request)
+    {
+        return view('pages.projects.applied');
+    }
+
     public function show(Application $application)
     {
         //

@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth']], function (){
 
     Route::get('/profile', 'HomeController@profile');
 
-    Route::get('/applied-projects', 'ProjectsController@applied');
+    Route::get('/applied-projects', 'ApplicationsController@applied');
     Route::get('/completed-projects', 'ProjectsController@completed');
 
     //admin routes

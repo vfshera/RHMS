@@ -45,10 +45,6 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function applied(Request $request)
-    {
-        return view('pages.projects.applied');
-    }
 
     public function completed(Request $request)
     {
