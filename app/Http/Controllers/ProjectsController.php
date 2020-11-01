@@ -36,11 +36,11 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $project = $request->validate([
             'title' => 'required|string',
             'location' => 'required|string',
             'start_date' => 'required|string',
+            'project_span' => 'required|string',
             'image' => 'required|image|mimes:png,jpeg|max:10240',
         ]);
 
@@ -49,22 +49,23 @@ class ProjectsController extends Controller
         $newProject = new Project();
         $newProject->title = $project['title'];
         $newProject->location = $project['location'];
-        $newProject->start_date = $project['start_date'];
+        $newProject->starting_date = $project['start_date'];
+        $newProject->project_span = $project['project_span'];
 
         $ProjectFile = $request->file('image');
         $ProjectFileName = time()."_"."PROJ_".$ProjectFile->getClientOriginalName();
 
 
-        if( $ProjectFile->storeAs('public/packages', $ProjectFileName) ){
+        if( $ProjectFile->storeAs('public/projects/images', $ProjectFileName) ){
             $newProject->image = $ProjectFileName;
 
             $newProject->save();
-//            toast('Project Uploaded!','success')->position('top')->autoClose(3500);
+            toast('Project Uploaded!','success')->position('top')->autoClose(3500);
 
             return redirect()->back();
 
         }else{
-//            toast('Failed To Upload Project!','error')->position('top')->autoClose(3500);
+            toast('Failed To Upload Project!','error')->position('top')->autoClose(3500);
 
             return redirect()->back();
         }
@@ -94,9 +95,10 @@ class ProjectsController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($title,$id ,$locations)
     {
-        //
+
+        return view('pages.projects.edit');
     }
 
     /**

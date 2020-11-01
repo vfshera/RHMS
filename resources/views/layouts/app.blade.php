@@ -82,6 +82,6 @@
 {{--SCRIPTS--}}
 
     <script src="{{ asset('js/app.js') }}"></script>
-
+    @include('sweetalert::alert')
 </body>
 </html>

@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/assign-project', 'ProjectsController@show');
         Route::get('/projects', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
+        Route::get('/{title}-{id}-{location}', 'ProjectsController@edit');
 
         Route::get('/engineers', 'EngineersController@index');
         Route::get('/contractors', 'ContractorsController@index');
@@ -46,10 +47,12 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/engineer-projects', 'EngineersController@available');
     });
 
+
     //contractors routes
     Route::group(['middleware' => ['access:2']], function(){
         Route::get('/contactor-projects', 'ContractorsController@available');
     });
+
 
     //roadusers routes
     Route::group(['middleware' => ['access:3']], function(){

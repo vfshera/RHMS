@@ -155,6 +155,7 @@
 <!--Local Stuff-->
 {{--<script src="{{ asset('js/vendor/jquery/jquery-3.2.1.min.js') }}"></script>--}}
 {{--<script src="{{ asset('form-assets/app.js') }}"></script>--}}
+@include('sweetalert::alert')
 
 </body>
 </html>

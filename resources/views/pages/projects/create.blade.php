@@ -35,7 +35,7 @@
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid Date is required: 12/30/2020">
                     <span class="label-input100">Project Span</span>
-                    <input class="input100" type="date" name="project_span">
+                    <input class="input100" type="text" name="project_span" placeholder="Enter project span">
                     <span class="focus-input100"></span>
                 </div>
 
