@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/create-project', 'ProjectsController@create');
         Route::get('/assign-project', 'ProjectsController@show');
         Route::get('/projects', 'ProjectsController@index');
+        Route::post('/projects', 'ProjectsController@store');
 
         Route::get('/engineers', 'EngineersController@index');
         Route::get('/contractors', 'ContractorsController@index');

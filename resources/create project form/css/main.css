@@ -292,7 +292,8 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  background: #ff4b5a;
+  background: #03a9f3;
+  /*background: #ff4b5a;*/
 }
 
 
@@ -342,7 +343,8 @@ textarea.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #ff4b5a;
+  background-color: #03a9f3;
+  /*background-color: #ff4b5a;*/
   border-radius: 25px;
 
   font-family: Poppins-Medium;
@@ -355,11 +357,12 @@ textarea.input100 {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
-  -moz-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
-  -webkit-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
-  -o-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
-  -ms-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+  /*box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);*/
+  box-shadow: 0 10px 30px 0px #03a9f355;
+  -moz-box-shadow: 0 10px 30px 0px #03a9f355;
+  -webkit-box-shadow: 0 10px 30px 0px #03a9f355;
+  -o-box-shadow: 0 10px 30px 0px #03a9f355;
+  -ms-box-shadow: 0 10px 30px 0px #03a9f355;
 }
 
 .contact100-form-btn i {

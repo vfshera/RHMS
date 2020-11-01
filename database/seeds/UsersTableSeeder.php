@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
            'name' => 'Admin',
            'email' => 'admin@rhms.go.ke',
            'password' => Hash::make('superuser'),
+           'status' => 1,
            'access' => 0
         ]);
 
@@ -27,6 +28,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Anthony Greg',
             'email' => 'anto@engineers.org',
             'password' => Hash::make('engineer1'),
+            'status' => 0,
             'access' => 1
         ]);
 
@@ -36,6 +38,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Jerry Fundi',
             'email' => 'jerryfundi@contractors.org',
             'password' => Hash::make('contractor1'),
+           'status' => 0,
             'access' => 2
         ]);
 
@@ -45,6 +48,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Joshua Ngulo',
             'email' => 'joshu254@citizen.co.ke',
             'password' => Hash::make('citizen1'),
+             'status' => 1,
             'access' => 3
         ]);
     }

@@ -8,7 +8,8 @@
 
     <div class="container-contact100 ">
 
-            <form class="contact100-form validate-form">
+            <form class="contact100-form validate-form" method="POST" action="/projects" enctype="multipart/form-data">
+                @csrf
 				<span class="contact100-form-title">
 					Create Project
 				</span>

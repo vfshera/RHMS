@@ -9,11 +9,11 @@ class Project extends Model
     protected $guarded = [];
 
     public function contractor(){
-        return $this->hasOne(Contractor::class);
+        return $this->hasOne(Contractor::class , 'id');
     }
 
     public function engineer(){
-        return $this->hasOne(Engineer::class);
+        return $this->hasOne(Engineer::class , 'id');
     }
 
     public function ratings(){

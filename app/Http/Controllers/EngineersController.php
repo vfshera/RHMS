@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Engineer;
+use App\User;
 use Illuminate\Http\Request;
 
 class EngineersController extends Controller
@@ -14,7 +15,11 @@ class EngineersController extends Controller
      */
     public function index()
     {
-       return view('pages.engineers.index');
+
+        $engineers = User::where('access' ,1)->orderBy('created_at' ,'DESC')->get();
+
+
+       return view('pages.engineers.index', compact('engineers'));
     }
 
     /**

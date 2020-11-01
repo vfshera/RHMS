@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contractor;
+use App\User;
 use Illuminate\Http\Request;
 
 class ContractorsController extends Controller
@@ -14,7 +15,9 @@ class ContractorsController extends Controller
      */
     public function index()
     {
-        return view('pages.contractors.index');
+        $contractors = User::where('access' , 2)->orderBy('created_at' ,'DESC')->get();
+
+        return view('pages.contractors.index' , compact('contractors'));
     }
 
     /**

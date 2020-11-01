@@ -14,7 +14,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return view('pages.projects.all');
+        $projects = Project::orderBy('created_at', 'DESC')->get();
+        return view('pages.projects.all' , compact('projects'));
     }
 
     /**
@@ -30,12 +31,43 @@ class ProjectsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        $project = $request->validate([
+            'title' => 'required|string',
+            'location' => 'required|string',
+            'start_date' => 'required|string',
+            'image' => 'required|image|mimes:png,jpeg|max:10240',
+        ]);
+
+
+
+        $newProject = new Project();
+        $newProject->title = $project['title'];
+        $newProject->location = $project['location'];
+        $newProject->start_date = $project['start_date'];
+
+        $ProjectFile = $request->file('image');
+        $ProjectFileName = time()."_"."PROJ_".$ProjectFile->getClientOriginalName();
+
+
+        if( $ProjectFile->storeAs('public/packages', $ProjectFileName) ){
+            $newProject->image = $ProjectFileName;
+
+            $newProject->save();
+//            toast('Project Uploaded!','success')->position('top')->autoClose(3500);
+
+            return redirect()->back();
+
+        }else{
+//            toast('Failed To Upload Project!','error')->position('top')->autoClose(3500);
+
+            return redirect()->back();
+        }
     }
 
     /**
