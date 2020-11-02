@@ -98,7 +98,8 @@ class ProjectsController extends Controller
     public function edit($title,$id ,$locations)
     {
 
-        return view('pages.projects.edit');
+        $project = Project::findOrFail($id);
+        return view('pages.projects.edit' , compact('project'));
     }
 
     /**
