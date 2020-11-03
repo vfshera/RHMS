@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Application;
 use App\Contractor;
 use App\Engineer;
 use App\Project;
@@ -76,9 +77,12 @@ class ProjectsController extends Controller
 
 
 
+
     public function completed(Request $request)
     {
-        return view('pages.projects.completed');
+        $applications = Application::where('user_id',auth()->user()->id)->orderBy('created_at','DESC')->get();
+
+        return view('pages.projects.completed', compact('applications'));
     }
 
     public function show(Project $project)

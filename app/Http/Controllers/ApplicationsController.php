@@ -38,16 +38,39 @@ class ApplicationsController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Application  $application
-     * @return \Illuminate\Http\Response
-     */
+    public function apply(Request $request)
+    {
+        $data = $request->validate([
+            'project_id'=>'required|string',
+            'location'=>'required|string'
+        ]);
+        $userLocation =  (auth()->user()->access == 1) ? strtolower(auth()->user()->engineer->location) : strtolower(auth()->user()->contractor->location);
+        if($userLocation == $data['location']){
+            if(
+            Application::create([
+                'project_id' => $data['project_id'],
+                'location' => $data['location'],
+                'type' => (auth()->user()->access == 1) ? 'ENGINEER' : 'CONSTRUCTOR',
+                'user_id' => auth()->user()->id,
+                'user_access' => auth()->user()->access,
+            ])
+            ){
+                toast('Project Application Sent!','success')->position('top')->autoClose(4500);
+            }else{
+                toast('Project Application Failed!','error')->position('top')->autoClose(4500);
+            }
+
+        }else{
+            toast('Sorry You Cant Apply To This Project!','error')->position('top')->autoClose(4500);
+        }
+
+        return redirect()->back();
+    }
 
     public function applied(Request $request)
     {
-        return view('pages.projects.applied');
+        $applications = Application::where('user_id',auth()->user()->id)->orderBy('created_at','DESC')->get();
+        return view('pages.projects.applied', compact('applications'));
     }
 
     public function show(Application $application)

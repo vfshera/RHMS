@@ -2,12 +2,14 @@
 
 
 @section('content')
+
+    <!-- Orders -->
     <div class="orders">
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Find Projects</h4>
+                        <h4 class="box-title">Projects </h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -17,11 +19,13 @@
                                     <th class="serial">#</th>
                                     <th class="avatar">Image</th>
                                     <th>Title</th>
+                                    <th>Engineer</th>
+                                    <th>Contractor</th>
                                     <th>Starting</th>
                                     <th>Span</th>
                                     <th>Location</th>
                                     <th>Ending</th>
-                                    <th>Apply</th>
+                                    <th>Progress</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,20 +41,18 @@
                                             </div>
                                         </td>
                                         <td> {{ $project->title ?? '***' }} </td>
+                                        <td>  <span class="name">{{ $project->engineer->name ?? '***' }}</span> </td>
+                                        <td> <span class="product">{{ $project->contractor->name ?? '***' }}</span> </td>
                                         <td><span class="count">{{ $project->starting_date ?? '***' }}</span></td>
                                         <td><span class="count">{{ $project->project_span ?? '***'}}</span></td>
                                         <td><span class="count">{{ $project->location ?? '***' }}</span></td>
                                         <td><span class="count">{{ $project->date_finished ?? '***' }}</span></td>
                                         <td>
-
-                                                <form action="/apply-project" method="post">
-                                                    @csrf
-                                                    <input type="text" value="{{ $project->id }}" hidden name="project_id">
-                                                    <input type="text" value="{{ strtolower($project->location) }}" hidden name="location">
-
-                                                    <button type="submit" class="apply-btn"><i class="fa  fa-arrow-right"></i></button>
-
-                                                </form>
+                                            <a href="/{{ str_replace(' ','_', strtolower($project->title)) }}-{{ $project->id }}-{{ str_replace(' ','-', strtolower($project->location)) }}">
+                                                              <span class="badge @if($project->status == 1) badge-complete @else badge-pending @endif">
+                                                                    @if($project->progress == 1) Complete @else Pending @endif
+                                                              </span>
+                                            </a>
                                         </td>
 
                                     </tr>
@@ -63,4 +65,5 @@
             </div>  <!-- /.col-lg-8 -->
         </div>
     </div>
+    <!-- /.orders -->
 @endsection

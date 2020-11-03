@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function (){
 
     Route::get('/profile', 'HomeController@profile');
 
+    Route::post('/apply-project', 'ApplicationsController@apply');
     Route::get('/applied-projects', 'ApplicationsController@applied');
     Route::get('/completed-projects', 'ProjectsController@completed');
 
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['auth']], function (){
     //engineers routes
     Route::group(['middleware' => ['access:1']],function(){
         Route::get('/engineer-projects', 'EngineersController@available');
+
     });
 
 

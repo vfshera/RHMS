@@ -28,6 +28,7 @@ class HomeController extends Controller
 
     public function profile()
     {
-        return view('auth.profile');
+        $my = auth()->user();
+        return view('auth.profile', compact('my'));
     }
 }
