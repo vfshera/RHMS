@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function contractor(){
         return $this->hasOne(Contractor::class , '', 'id');
     }
+
+    public function complains(){
+        return $this->hasMany(Complain::class);
+    }
 }

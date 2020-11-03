@@ -18543,12 +18543,22 @@ a.text-dark:focus {
   }
 }
 
+.circle-profile {
+  height: 50vh;
+  width: 50vh;
+  border-radius: 30vh;
+}
+
 .apply-btn {
   padding: 5px 10px;
   border-radius: 20px;
   background-color: #1da1f2;
   width: 40px;
   color: white;
+}
+
+.proform {
+  display: flex;
 }
 
 .apply-btn i .fa-arrow-right {
@@ -18560,6 +18570,17 @@ a.text-dark:focus {
 .change-profile {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.rhms-upload-btn {
+  background-color: #0069d9;
+  border-radius: 7px;
+  width: 90px;
+  height: 40px;
+  color: white;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -18581,12 +18602,26 @@ a.text-dark:focus {
   color: #007bff;
 }
 
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating .value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .project-form {
   width: 100% !important;
   height: 90% !important;
 }
 
 .project-container {
+  background-color: white;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;

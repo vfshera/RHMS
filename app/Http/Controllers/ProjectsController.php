@@ -6,6 +6,7 @@ use App\Application;
 use App\Contractor;
 use App\Engineer;
 use App\Project;
+use App\Rating;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,12 @@ class ProjectsController extends Controller
         return view('pages.projects.all' , compact('projects'));
     }
 
+    public function ratable()
+    {
+        $projects = Project::orderBy('created_at', 'DESC')->get();
+        return view('pages.projects.all-ratable' , compact('projects'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,12 +39,7 @@ class ProjectsController extends Controller
         return view('pages.projects.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $project = $request->validate([
@@ -125,6 +127,24 @@ class ProjectsController extends Controller
         }
 
         return redirect()->back();
+    }
+
+
+
+    public function view($title,$id ,$locations)
+    {
+        $project = Project::findOrFail($id);
+        $engineers = User::where('access' , 1)->orderBy('name' , 'DESC')->get();
+        $contractors = User::where('access' , 2)->orderBy('name' , 'DESC')->get();
+
+        return view('pages.projects.view' , compact('project','contractors','engineers'));
+    }
+
+    public function yr($id)
+    {
+        $rated = Rating::where('project_id', $id)->where('user_id', auth()->user()->id)->first();
+
+
     }
 
 

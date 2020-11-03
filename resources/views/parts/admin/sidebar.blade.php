@@ -96,7 +96,20 @@
                 </li>
             @endcontractor
 
-
+            @roaduser
+            <li  class="@if (\Request::is('allprojects')) active @endif">
+                <a href="/allprojects">
+                    <i class="menu-icon fa  fa-gavel"></i>
+                    Projects
+                </a>
+            </li>
+                <li class="@if (\Request::is('complains')) active @endif">
+                    <a href="/complains" >
+                        <i class="menu-icon ti-wand"></i>
+                        Report
+                    </a>
+                </li>
+            @endroaduser
 {{--            //general--}}
             <hr>
             <hr>

@@ -24,6 +24,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function (){
 
     Route::get('/profile', 'HomeController@profile');
+    Route::post('/change-profile', 'HomeController@picture');
 
     Route::post('/apply-project', 'ApplicationsController@apply');
     Route::get('/applied-projects', 'ApplicationsController@applied');
@@ -59,6 +60,12 @@ Route::group(['middleware' => ['auth']], function (){
 
     //roadusers routes
     Route::group(['middleware' => ['access:3']], function(){
+        Route::get('/complains', 'ComplainController@create');
+        Route::post('/complains', 'ComplainController@store');
+        Route::get('/allprojects', 'ProjectsController@ratable');
+        Route::get('/{title}-{id}-{location}', 'ProjectsController@view');
+
+        Route::get('/rate/{id}', 'ProjectsController@rate');
 
     });
 
