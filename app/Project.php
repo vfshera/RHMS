@@ -9,18 +9,18 @@ class Project extends Model
     protected $guarded = [];
 
     public function contractor(){
-        return $this->hasOne(Contractor::class , 'id');
+        return $this->hasOne(User::class , 'id', 'contractor_id');
     }
 
     public function engineer(){
-        return $this->hasOne(Engineer::class , 'id');
+        return $this->hasOne(User::class , 'id', 'engineer_id');
     }
 
     public function ratings(){
-        return $this->hasMany(Contractor::class);
+        return $this->hasMany(Rating::class);
     }
 
     public function applications(){
-        return $this->hasMany(Contractor::class);
+        return $this->hasMany(Application::class);
     }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Contractor;
+use App\Engineer;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -71,12 +74,6 @@ class ProjectsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
 
 
     public function completed(Request $request)
@@ -89,37 +86,45 @@ class ProjectsController extends Controller
         return view('pages.projects.assign');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
     public function edit($title,$id ,$locations)
     {
 
         $project = Project::findOrFail($id);
-        return view('pages.projects.edit' , compact('project'));
+        $engineers = User::where('access' , 1)->orderBy('name' , 'DESC')->get();
+        $contractors = User::where('access' , 2)->orderBy('name' , 'DESC')->get();
+
+        return view('pages.projects.edit' , compact('project','contractors','engineers'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Project $project)
+
+    public function update(Request $request)
     {
-        //
+
+        $data = $request->validate([
+            'engineer_id'=> 'required|string',
+            'contractor_id' => 'required|string',
+            'progress'=> 'required|string',
+            'title' => 'required|string',
+            'location' => 'required|string',
+            'starting_date' => 'required|string',
+            'project_span'=> 'required|string',
+            'date_finished' => 'required|string',
+        ]);
+
+        $proj = Project::findOrFail($request->project_id);
+
+
+        if( $proj->update($data)){
+            toast('Project Updated!','success')->position('top')->autoClose(4500);
+        }else{
+            toast('Failed To Update Project!','error')->position('top')->autoClose(4500);
+        }
+
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy(Project $project)
     {
         //

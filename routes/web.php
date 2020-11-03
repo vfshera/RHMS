@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function (){
         Route::get('/assign-project', 'ProjectsController@show');
         Route::get('/projects', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
+        Route::post('/set-project', 'ProjectsController@update');
         Route::get('/{title}-{id}-{location}', 'ProjectsController@edit');
 
         Route::get('/engineers', 'EngineersController@index');

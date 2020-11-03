@@ -18543,6 +18543,11 @@ a.text-dark:focus {
   }
 }
 
+.project-form {
+  width: 100% !important;
+  height: 90% !important;
+}
+
 .project-container {
   display: flex;
   justify-content: center;
@@ -18580,6 +18585,7 @@ a.text-dark:focus {
 .project-img img {
   width: 95%;
   height: 80%;
+  border-radius: 8px;
 }
 
 .project .side {
@@ -18618,9 +18624,21 @@ a.text-dark:focus {
   color: #111111cc;
 }
 
-button {
-  align-self: flex-end;
-  margin-top: 60px !important;
+select #progress {
+  width: 50%;
+  padding: 5px;
+  outline: none;
+}
+
+.detail input {
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.rhms-theme-btn {
+  display: flex;
+  align-self: end !important;
+  margin-left: auto;
   margin-right: 60px !important;
   background-color: #1da1f2;
   padding: 15px 25px;
@@ -18628,5 +18646,10 @@ button {
   color: white !important;
   font-size: large;
   font-weight: bold;
+  transition: 10ms ease-in-out;
+}
+
+.rhms-theme-btn:hover {
+  transform: scale(1.02);
 }
 

@@ -7,26 +7,21 @@
                 <a href="/home"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
             </li>
 
-            <li>
-                <a href="#" class="dropdown-toggle "
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
+            <li  class="@if (\Request::is('projects')) active @endif">
+                <a href="/projects">
                     <i class="menu-icon fa  fa-gavel"></i>
                     Projects
                 </a>
             </li>
 
-                        <li  class="@if (\Request::is('create-project')) active @endif flex-row ml-3 align-items-center">
-                            <i class="fa  fa-plus mr-2"></i>
-                            <a href="/create-project">Create Project</a>
+                        <li  class="@if (\Request::is('create-project')) active @endif ">
+
+                            <a href="/create-project">
+                                <i class="menu-icon fa  fa-plus "></i>
+                                Create Project</a>
                         </li>
 
-                        <li  class="@if (\Request::is('projects')) active @endif flex-row ml-3 align-items-center">
-                            <i class="ti-eye action-menu mr-2">
 
-                            </i><a href="/projects">All</a>
-                        </li>
 
                 <li class="@if (\Request::is('engineers')) active @endif">
                     <a href="/engineers" >
@@ -100,6 +95,28 @@
                     </a>
                 </li>
             @endcontractor
+
+
+{{--            //general--}}
+            <hr>
+            <hr>
+          <li class="class="@if (\Request::is('profile')) active @endif"">
+              <a  href="/profile">
+                  <i class="menu-icon fa fa-user"></i>
+                    My Profile
+              </a>
+          </li>
+
+            <li>
+                <a  href="/logout"    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                    <i class="menu-icon fa fa-power-off"></i>Logout</a>
+            </li>
+
+            <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                @csrf
+            </form>
+
         </ul>
     </div>
 </nav>

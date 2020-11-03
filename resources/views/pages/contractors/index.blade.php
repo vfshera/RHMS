@@ -19,7 +19,6 @@
                                     <th class="avatar">Avatar</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -33,10 +32,7 @@
                                            </td>
                                            <td>  <span class="name">{{ $contractor->name }}</span> </td>
                                            <td> <span class="product">{{ $contractor->email }}</span> </td>
-                                           <td>
 
-                                               <span class="badge badge-complete">{{ $contractor->status }}Complete</span>
-                                           </td>
                                        </tr>
                                    @endforeach
                                 </tbody>

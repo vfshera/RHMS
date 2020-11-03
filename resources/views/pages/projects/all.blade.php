@@ -41,15 +41,15 @@
                                                         </div>
                                                     </td>
                                                     <td> {{ $project->title ?? '***' }} </td>
-                                                    <td>  <span class="name">{{ $project->engineer ?? '***' }}</span> </td>
-                                                    <td> <span class="product">{{ $project->contactor ?? '***' }}</span> </td>
+                                                    <td>  <span class="name">{{ $project->engineer->name ?? '***' }}</span> </td>
+                                                    <td> <span class="product">{{ $project->contractor->name ?? '***' }}</span> </td>
                                                     <td><span class="count">{{ $project->starting_date ?? '***' }}</span></td>
                                                     <td><span class="count">{{ $project->project_span ?? '***'}}</span></td>
                                                     <td><span class="count">{{ $project->location ?? '***' }}</span></td>
                                                     <td><span class="count">{{ $project->date_finished ?? '***' }}</span></td>
                                                     <td>
                                                         <a href="/{{ str_replace(' ','_', strtolower($project->title)) }}-{{ $project->id }}-{{ str_replace(' ','-', strtolower($project->location)) }}">
-                                                              <span class="badge @if($project->status == 1)badge-complete @else badge-pending @endif">
+                                                              <span class="badge @if($project->status == 1) badge-complete @else badge-pending @endif">
                                                                     @if($project->progress == 1) Complete @else Pending @endif
                                                               </span>
                                                         </a>
