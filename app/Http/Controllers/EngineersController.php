@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Application;
 use App\Engineer;
+use App\Http\Resources\FindProjectsResource;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class EngineersController extends Controller
 
     public function available()
     {
-        $projects = Project::where('progress' , 0)->where('engineer_id', null)->get();
+        $projects = FindProjectsResource::collection(Project::where('progress' , 0)->where('engineer_id', null)->get());
 
         $location = auth()->user()->engineer->location ?? '';
         return view('pages.projects.find' , compact('projects','location'));

@@ -31,6 +31,7 @@
                     @endif
                 </h3>
                 @if(Auth::user()->access !== 0 && Auth::user()->access !== 3)
+
                     <h5 class="@if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv ) text-success @else text-danger @endif">
                         @if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv ) CV Verified @else Please Upload Your CV @endif
                     </h5>

@@ -49,8 +49,17 @@ class ApplicationsController extends Controller
             'project_id'=>'required|string',
             'location'=>'required|string'
         ]);
+
+        $applied = Application::where('project_id', $data['project_id'])->where('user_id', auth()->user()->id)->get()->count();
+
+        if($applied > 0){
+            toast('You Alredy Applied To This Project!','error')->position('top')->autoClose(4500);
+
+            return redirect()->back();
+        }
+
         $userLocation =  (auth()->user()->access == 1) ? strtolower(auth()->user()->engineer->location) : strtolower(auth()->user()->contractor->location);
-        if($userLocation == $data['location']){
+        if($userLocation == $data['location'] ){
             if(
             Application::create([
                 'project_id' => $data['project_id'],

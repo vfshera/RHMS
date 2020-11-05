@@ -42,7 +42,9 @@
                                         <td><span class="count">{{ $project->location ?? '***' }}</span></td>
                                         <td><span class="count">{{ $project->date_finished ?? '***' }}</span></td>
                                         <td>
-
+                                            @if($project->applied)
+                                                #
+                                            @else
                                                 <form action="/apply-project" method="post">
                                                     @csrf
                                                     <input type="text" value="{{ $project->id }}" hidden name="project_id">
@@ -51,6 +53,7 @@
                                                     <button type="submit" class=" @if(strtolower($project->location) == strtolower($location) ) apply-btn-success @else  apply-btn-danger @endif"><i class="fa  fa-arrow-right"></i></button>
 
                                                 </form>
+                                            @endif
                                         </td>
 
                                     </tr>

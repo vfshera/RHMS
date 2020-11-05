@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contractor;
 use App\Http\Middleware\Authenticate;
+use App\Http\Resources\FindProjectsResource;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class ContractorsController extends Controller
 
     public function available()
     {
-        $projects = Project::where('progress' , 0)->where('contractor_id', null)->get();
+        $projects = FindProjectsResource::collection(Project::where('progress' , 0)->where('contractor_id', null)->get());
+
         $location = auth()->user()->contractor->location ?? '';
 
         return view('pages.projects.find' , compact('projects' ,'location'));
