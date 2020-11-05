@@ -15,7 +15,7 @@ class AccessRedirector
      */
     public function handle($request, Closure $next, $access)
     {
-        if($request->user()->access != $access && $request->user()->access != 0){
+        if($request->user()->access != $access){
             return redirect('/profile');
         }
 

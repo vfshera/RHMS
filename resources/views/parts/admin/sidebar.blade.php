@@ -3,8 +3,14 @@
         <ul class="nav navbar-nav">
 
            @admin
-            <li class="@if (\Request::is('home')) active @endif">
-                <a href="/home"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+            <li class="@if (\Request::is('profile')) active @endif">
+                <a href="/profile"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+            </li>
+
+
+
+            <li class="@if (\Request::is('showcases')) active @endif">
+                <a href="/showcases"><i class="menu-icon fa fa-laptop"></i>Showcases</a>
             </li>
 
             <li  class="@if (\Request::is('projects')) active @endif">
@@ -37,6 +43,20 @@
                         Contractors
                     </a>
                 </li>
+
+            <li class="@if (\Request::is('applications')) active @endif">
+                <a href="/applications" class="">
+                    <i class="menu-icon ti-hand-stop"></i>
+                    Applications
+                </a>
+            </li>
+
+            <li class="@if (\Request::is('complains')) active @endif">
+                <a href="/view-complains" class="">
+                    <i class="menu-icon ti-face-sad"></i>
+                    Complains
+                </a>
+            </li>
 
             @endadmin
 

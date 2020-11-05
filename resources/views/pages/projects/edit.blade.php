@@ -12,6 +12,13 @@
                 <span class="title">{{ $project->title }}</span>
                 <span class="location">{{ $project->location }}</span>
             </p>
+           @if($show == 0)
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#showCaseModal">
+                    SHOWCASE
+                </button>
+               @endif
+
+
         </div>
         <div class="side right-side mt-5">
             <form action="/set-project" method="POST" enctype="multipart/form-data" class="project-form">
@@ -98,7 +105,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row mb-4">
+                <div class="row mb-3">
                     <div class="col-md-6">
                         <span>Project Title</span>
                         <p class="col-md-12 detail">
@@ -113,9 +120,53 @@
                         </p>
                     </div>
                 </div>
-                <button type="submit"  class="rhms-theme-btn">UPDATE</button>
+                <button type="submit"  class="rhms-theme-btn mb-2">UPDATE</button>
             </form>
         </div>
     </div>
+
+
 </div>
+@if($show == 0)
+<div class="modal fade" id="showCaseModal" tabindex="-1"  data-backdrop="false" role="dialog" aria-labelledby="showCaseModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="showCaseModalTitle">SHOWCASE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/showcase" method="POST" enctype="multipart/form-data" id="showcase-form">
+                    @csrf
+                    <div class="form-group col-md-12" >
+                        <label for="">Before Image</label>
+                        <input type="file" class="form-control" name="before_img" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="">After Image</label>
+                        <input type="file" class="form-control" name="after_img" required>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label for="">Caption</label>
+                        <input type="text" class="form-control" name="caption" required>
+                    </div>
+                        <input type="text" class="form-control" value="{{ $project->location }}" name="location" hidden >
+                        <input type="text" class="form-control" value="{{ $project->id }}" name="project_id" hidden >
+
+                    <button class="btn btn-primary" onclick="event.preventDefault();
+                            document.getElementById('showcase-form').submit();
+                                document.getElementsByClassName('close').click();" type="submit">
+                        SHOW
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endif
+
 @endsection

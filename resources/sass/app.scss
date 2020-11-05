@@ -8,6 +8,10 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+@import "styles.css";
+
+
+
 @import '../themefy icons/themify-icons.css';
 
 
@@ -24,11 +28,70 @@
 
 
 
-.circle-profile{
-    height: 50vh;
-    width: 50vh;
-    border-radius: 30vh;
+
+
+
+
+
+#projects-listing{
+    display: flex;
+    justify-content: center !important;
 }
+.project-nav{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.project-nav-active{
+    border-bottom: 5px deepskyblue solid ;
+    color: deepskyblue;
+    font-weight: bold;
+}
+.project-nav a{
+    font-size: 24px;
+    text-decoration: none;
+    color: #111111;
+}
+
+.project-showcase{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-images{
+    height: 90%;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+.img-before , .img-after{
+    height: 100%;
+    width: 49.7%;
+   background-image: url("/storage/");
+    border-radius: 5px;
+    color: black;
+}
+
+.img-before{
+
+}
+.img-after{
+
+}
+.project-area{
+    height: 10%;
+    width: 100%;
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+
 .apply-btn{
     padding: 5px 10px;
     border-radius: 20px;
@@ -36,9 +99,24 @@
     width: 40px;
     color: white;
 }
-.proform{
-    display: flex;
+
+.apply-btn-success{
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #34ce57;
+    width: 40px;
+    color: white;
 }
+
+
+.apply-btn-danger{
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #e3342f;
+    width: 40px;
+    color: white;
+}
+
 
 .apply-btn i .fa-arrow-right{
     color: #1da1f2 !important;
@@ -46,25 +124,28 @@
     width: 100% !important;
 }
 .change-profile{
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .rhms-upload-btn{
-
     background-color: #0069d9;
-    border-radius: 7px;
-    width: 90px;
-    height: 40px;
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 12px;
+    padding: 7px 20px;
+    color: white;
 }
 .change-profile input[type='file']{
 
 }
 
+.circle-profile{
+    height: 50vh;
+    width: 50vh;
+    border-radius: 25vh;
+    border: rgba(189, 195, 199, .2) 10px solid;
+    box-shadow: 0 10px 30px 0px #11111144;
+}
 .myinfo{
     display: flex;
     justify-content: space-between;
@@ -78,39 +159,29 @@
     align-items: center;
 }
 .acc-type{
-   text-align: center;
+    text-align: center;
     color: #007bff;
 }
 
-.rating{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.rating .value{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .project-form{
     width: 100% !important;
     height: 90% !important;
 }
 .project-container{
-    background-color: white;
-    border-radius: 15px;
+
     display :flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 30px 0px #11111125;;
+    //box-shadow: 0 10px 30px 0px #11111125;
+    background-color: transparent;
 }
 .project{
     background-color: white;
-   border-radius: 15px;
+    border-radius: 15px;
     min-height: 73vh;
-    width: 80vw;
-
+    width: 77vw;
+    box-shadow: 0 10px 30px 0px #11111125;
     display: flex;
     justify-content: space-between;
 }
@@ -156,7 +227,7 @@
 }
 .detail{
     margin-top: 10px;
-    width: 90% !important;
+    width: 85% !important;
     height: 5vh;
     background-color: #cccccc22;
     border-radius: 5px;
@@ -181,6 +252,7 @@ select #progress{
 .detail input {
     padding: 3px 10px;
     border-radius: 5px;
+    width: 95% !important;
 }
 .rhms-theme-btn{
     display: flex;
@@ -189,7 +261,7 @@ select #progress{
     //margin-top: 20px !important;
     margin-right: 60px !important;
     background-color: #1da1f2;
-    padding: 15px 25px;
+    padding: 10px 20px;
     border-radius: 30px !important;
     color: white !important;
     font-size: large;

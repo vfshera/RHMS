@@ -48,7 +48,7 @@
                                                     <input type="text" value="{{ $project->id }}" hidden name="project_id">
                                                     <input type="text" value="{{ strtolower($project->location) }}" hidden name="location">
 
-                                                    <button type="submit" class="apply-btn"><i class="fa  fa-arrow-right"></i></button>
+                                                    <button type="submit" class=" @if(strtolower($project->location) == strtolower($location) ) apply-btn-success @else  apply-btn-danger @endif"><i class="fa  fa-arrow-right"></i></button>
 
                                                 </form>
                                         </td>

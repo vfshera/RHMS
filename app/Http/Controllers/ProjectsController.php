@@ -7,6 +7,7 @@ use App\Contractor;
 use App\Engineer;
 use App\Project;
 use App\Rating;
+use App\Showcase;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -99,7 +100,11 @@ class ProjectsController extends Controller
         $engineers = User::where('access' , 1)->orderBy('name' , 'DESC')->get();
         $contractors = User::where('access' , 2)->orderBy('name' , 'DESC')->get();
 
-        return view('pages.projects.edit' , compact('project','contractors','engineers'));
+        $show = Showcase::where('project_id', $project->id)->first()->count();
+
+
+
+        return view('pages.projects.edit' , compact('project','contractors','engineers','show'));
     }
 
 

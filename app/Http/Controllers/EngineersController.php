@@ -30,7 +30,8 @@ class EngineersController extends Controller
     {
         $projects = Project::where('progress' , 0)->where('engineer_id', null)->get();
 
-        return view('pages.projects.find' , compact('projects'));
+        $location = auth()->user()->engineer->location ?? '';
+        return view('pages.projects.find' , compact('projects','location'));
     }
 
 

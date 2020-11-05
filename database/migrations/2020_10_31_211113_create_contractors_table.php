@@ -15,10 +15,10 @@ class CreateContractorsTable extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->id();
-            $table->string('cv');
-            $table->string('qualification');
+            $table->string('cv')->nullable();
+            $table->string('qualification')->nullable();
             $table->string('user_id');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

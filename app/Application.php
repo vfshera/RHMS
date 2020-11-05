@@ -9,7 +9,7 @@ class Application extends Model
     protected $guarded = [];
 
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class , 'id','user_id');
     }
 
     public function project(){

@@ -14,7 +14,10 @@ class ComplainController extends Controller
      */
     public function index()
     {
-        //
+        $complains = Complain::orderBy('created_at' , 'DESC')->get();
+
+
+        return view('pages.roadusers.allcomplains', compact('complains'));
     }
 
     /**

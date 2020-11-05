@@ -19,6 +19,7 @@
                                     <th class="avatar">Avatar</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,7 +33,29 @@
                                         </td>
                                         <td>  <span class="name">{{ $engineer->name }}</span> </td>
                                         <td> <span class="product">{{ $engineer->email }}</span> </td>
+                                        <td>
+                                            @if( $engineer->status == 1 )
 
+                                                    <span class="badge badge-complete"   onclick="event.preventDefault();
+                                                     document.getElementById('toggle-status').submit();">ACTIVE </span>
+                                                <form  action="/toggle-status" method="POST" id="toggle-status">
+                                                    @csrf
+                                                    <input type="text" value="0" hidden name="status">
+                                                    <input type="text" value="{{ $engineer->id }}" hidden name="user_id">
+                                                </form>
+
+                                            @elseif($engineer->status == 0)
+
+                                                    <span class="badge badge-pending"  onclick="event.preventDefault();
+                                                     document.getElementById('toggle-status').submit();">INACTIVE </span>
+                                                <form  action="/toggle-status" method="POST" id="toggle-status">
+                                                    @csrf
+                                                    <input type="text" value="1" hidden name="status">
+                                                    <input type="text" value="{{ $engineer->id }}" hidden name="user_id">
+                                                </form>
+
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

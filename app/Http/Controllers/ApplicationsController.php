@@ -14,7 +14,12 @@ class ApplicationsController extends Controller
      */
     public function index()
     {
-        //
+        $applications = Application::orderBy('created_at', 'DESC')->get();
+
+        $types = ['','engineer_id','contractor_id'];
+
+
+        return view('pages.applications.index', compact('applications' ,'types'));
     }
 
     /**
@@ -49,7 +54,6 @@ class ApplicationsController extends Controller
             if(
             Application::create([
                 'project_id' => $data['project_id'],
-                'location' => $data['location'],
                 'type' => (auth()->user()->access == 1) ? 'ENGINEER' : 'CONSTRUCTOR',
                 'user_id' => auth()->user()->id,
                 'user_access' => auth()->user()->access,
