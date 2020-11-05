@@ -98,7 +98,7 @@
         </div>
         <div class="top-right">
             <div class="header-menu " style="align-items: center">
-                <span>{{ Auth::user()->name }}</span>
+                <span>{{ Auth::user()->name }} @if(Auth::user()->status == 1)<img src="/storage/profiles/verified.png" height="25px"  alt="">@endif</span>
                 <div class="user-area dropdown float-right">
 
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

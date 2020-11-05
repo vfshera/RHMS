@@ -11,7 +11,9 @@ class ShowcaseController extends Controller
 
     public function index()
     {
-        //
+        $showcases = Showcase::orderBy('created_at', 'DESC')->paginate(5);
+
+        return view('pages.showcases.showcases', compact('showcases'));
     }
 
 
