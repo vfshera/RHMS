@@ -20,8 +20,10 @@ class iSActivated
             toast('Your Account is Not Activated!','error')->position('top')->autoClose(4500);
 
             return redirect('/profile');
+        }else{
+            return $next($request);
         }
 
-        return $next($request);
+
     }
 }

@@ -38,9 +38,9 @@ Auth::routes();
 
 
 
-Route::group(['middleware' => ['auth']], function (){
+Route::group(['middleware' => ['auth','activated']], function (){
 
-    Route::get('/profile', 'HomeController@profile');
+    Route::get('/profile', 'HomeController@profile')->withoutMiddleware('activated');
     Route::post('/profile-update', 'HomeController@update');
     Route::post('/change-profile', 'HomeController@picture');
 

@@ -32,19 +32,21 @@
                 </h3>
                 @if(Auth::user()->access !== 0 && Auth::user()->access !== 3)
 
-                    <h5 class="@if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv ) text-success @else text-danger @endif">
-                        @if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv ) CV Verified @else Please Upload Your CV @endif
+                    <h5 class="@if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv  ?? false) text-success @else text-danger @endif">
+                        @if(Auth::user()->engineer->cv ?? Auth::user()->contractor->cv  ?? false) CV Verified @else Please Upload Your CV @endif
                     </h5>
-                    <h5 class="@if(Auth::user()->engineer->location ?? Auth::user()->contractor->location ) text-success @else text-danger @endif">
-                        @if(Auth::user()->engineer->location ?? Auth::user()->contractor->location ) {{ Auth::user()->engineer->location ?? Auth::user()->contractor->location }} @else Please Add Location To Apply For Jobs @endif
+                    <h5 class="@if(Auth::user()->engineer->location ?? Auth::user()->contractor->location  ?? false) text-success @else text-danger @endif">
+                        @if(Auth::user()->engineer->location ?? Auth::user()->contractor->location  ?? false) {{ Auth::user()->engineer->location ?? Auth::user()->contractor->location }} @else Please Add Location To Apply For Jobs @endif
                     </h5>
-                    <h5 class="@if(Auth::user()->engineer->qualification ?? Auth::user()->contractor->qualification ) text-success @else text-danger @endif">
-                        @if(Auth::user()->engineer->qualification ?? Auth::user()->contractor->qualification ) Qualification Verified @else Please Upload Qulification Documents @endif
+                    <h5 class="@if(Auth::user()->engineer->qualification ?? Auth::user()->contractor->qualification  ?? false) text-success @else text-danger @endif">
+                        @if(Auth::user()->engineer->qualification ?? Auth::user()->contractor->qualification  ?? false) Qualification Verified @else Please Upload Qulification Documents @endif
                     </h5>
+
+                    <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#updateProfileInfo">
+                        Complete Profile
+                    </button>
                 @endif
-                <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#updateProfileInfo">
-                    Complete Profile
-                </button>
+
             </div>
       </div>
   </div>
