@@ -27,10 +27,14 @@
 @import '../create project form/css/main.css';
 
 
+.checked{
+    color: #fff6a1 !important;
+}
 
 
-
-
+.fa .fa-star{
+    color: #ddd !important;
+}
 
 .rating{
     display: flex;

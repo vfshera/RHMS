@@ -18,11 +18,11 @@
                     <div>Rating</div>
                 </div>
                <div class="stars">
-                   <span class="fa fa-star checked" ></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
+                   <span class="fa fa-star fa-2x @if($avgRating > 0.5) checked @endif" ></span>
+                   <span class="fa fa-star fa-2x @if($avgRating > 1.5) checked @endif"></span>
+                   <span class="fa fa-star fa-2x @if($avgRating > 2.5) checked @endif"></span>
+                   <span class="fa fa-star fa-2x @if($avgRating > 3.5) checked @endif"></span>
+                   <span class="fa fa-star fa-2x @if($avgRating > 4.5) checked @endif"></span>
                </div>
                 @if($canRate == 0)
                 <!-- Button trigger modal -->
@@ -54,6 +54,8 @@
                         </div>
                     </div>
                 </div>
+                    @else
+                    <h6 class="text-success">You Rated This Project!</h6>
                 @endif
             </div>
         </div>

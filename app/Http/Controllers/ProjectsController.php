@@ -140,7 +140,7 @@ class ProjectsController extends Controller
                 $totalRating += $pRating->rating;
             }
 
-            $avgRating = ($totalRating / $rated);
+            $avgRating = ($totalRating == 0 || $rated == 0) ? 0 : ($totalRating / $rated);
         return view('pages.projects.view' , compact('project','contractors','engineers', 'canRate', 'avgRating'));
     }
 

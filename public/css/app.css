@@ -29042,6 +29042,14 @@ a.text-dark:focus {
   }
 }
 
+.checked {
+  color: #fff6a1 !important;
+}
+
+.fa .fa-star {
+  color: #ddd !important;
+}
+
 .rating {
   display: flex;
   flex-direction: column;
