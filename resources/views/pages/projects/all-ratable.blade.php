@@ -58,7 +58,7 @@
                                                             @if($project->progress == '0')
 
                                                                 <span class="badge   badge-pending ">
-                                                                        ----
+                                                                        --x--
                                                                   </span>
                                                             @endif
                                                     </td>

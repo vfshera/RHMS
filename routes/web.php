@@ -92,7 +92,7 @@ Route::group(['middleware' => ['auth','activated']], function (){
         Route::get('/allprojects', 'ProjectsController@ratable');
         Route::get('/{title}-{id}-{location}', 'ProjectsController@view');
 
-        Route::get('/rate/{id}', 'ProjectsController@rate');
+        Route::post('/rate', 'ProjectsController@rate');
 
     });
 

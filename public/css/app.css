@@ -29042,6 +29042,23 @@ a.text-dark:focus {
   }
 }
 
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+}
+
 #projects-listing {
   display: flex;
   justify-content: center !important;

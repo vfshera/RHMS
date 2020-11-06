@@ -14,7 +14,7 @@
             </p>
             <div class="rating">
                 <div class="value">
-                    <div>0.0</div>
+                    <div>{{ $avgRating }}</div>
                     <div>Rating</div>
                 </div>
                <div class="stars">
@@ -24,32 +24,37 @@
                    <span class="fa fa-star"></span>
                    <span class="fa fa-star"></span>
                </div>
+                @if($canRate == 0)
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RateModal">
+                   RATE
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <div class="modal fade" id="RateModal" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="RateModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="RateModalLabel">Rate <span class="text-danger">* Only One Time Rating *</span></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <form action="/rate" method="POST" >
+                                    @csrf
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="rating" step="0.1" max="5" placeholder="Rate Between 1 - 5" required>
+                                        <input type="number" name="project_id" value="{{ $project->id }}" hidden>
+                                    </div>
+                                    <button class="btn btn-primary">SUBMIT</button>
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-{{--                end modal--}}
+                @endif
             </div>
         </div>
         <div class="side right-side mt-5">
@@ -124,4 +129,10 @@
 </div>
 
 
+@endsection
+@section('extra-scripts')
+
+    <script>
+        // document.addEventListener('DOMContentLoaded' , alert("Loaded"));
+    </script>
 @endsection

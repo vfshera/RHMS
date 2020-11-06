@@ -13,11 +13,6 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $projects = Project::orderBy('created_at', 'DESC')->get();
@@ -30,11 +25,7 @@ class ProjectsController extends Controller
         return view('pages.projects.all-ratable' , compact('projects'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('pages.projects.create');
@@ -79,8 +70,6 @@ class ProjectsController extends Controller
     }
 
 
-
-
     public function completed(Request $request)
     {
         $applications = Application::where('user_id',auth()->user()->id)->orderBy('created_at','DESC')->get();
@@ -88,10 +77,12 @@ class ProjectsController extends Controller
         return view('pages.projects.completed', compact('applications'));
     }
 
+
     public function show(Project $project)
     {
         return view('pages.projects.assign');
     }
+
 
     public function edit($title,$id ,$locations)
     {
@@ -142,14 +133,34 @@ class ProjectsController extends Controller
         $engineers = User::where('access' , 1)->orderBy('name' , 'DESC')->get();
         $contractors = User::where('access' , 2)->orderBy('name' , 'DESC')->get();
 
-        return view('pages.projects.view' , compact('project','contractors','engineers'));
+        $rated = $project->ratings->count();
+        $canRate = $project->ratings->where('user_id',auth()->user()->id)->count();
+        $totalRating = 0;
+            foreach ($project->ratings as $pRating){
+                $totalRating += $pRating->rating;
+            }
+
+            $avgRating = ($totalRating / $rated);
+        return view('pages.projects.view' , compact('project','contractors','engineers', 'canRate', 'avgRating'));
     }
 
-    public function yr($id)
+    public function rate(Request $request)
     {
-        $rated = Rating::where('project_id', $id)->where('user_id', auth()->user()->id)->first();
+        $projectRating = $request->validate([
+            'project_id' => 'required',
+            'rating' => 'required',
+        ]);
 
 
+        $projectRating += ['user_id' => auth()->user()->id];
+
+       if(Rating::create($projectRating)){
+           toast('Rating Submitted!','success')->position('top')->autoClose(4500);
+       }else{
+           toast('Failed To Rate This Project!','error')->position('top')->autoClose(4500);
+       }
+
+       return redirect()->back();
     }
 
 
