@@ -80,6 +80,7 @@
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->
+                {{ $applications->links() }}
             </div>  <!-- /.col-lg-8 -->
         </div>
     </div>

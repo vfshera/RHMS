@@ -14,7 +14,7 @@ class ApplicationsController extends Controller
      */
     public function index()
     {
-        $applications = Application::orderBy('created_at', 'DESC')->get();
+        $applications = Application::orderBy('created_at', 'DESC')->paginate(7);
 
         $types = ['','engineer_id','contractor_id'];
 

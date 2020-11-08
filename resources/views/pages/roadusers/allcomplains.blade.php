@@ -25,12 +25,17 @@
                                 <tbody>
                                 @foreach($complains as $key => $complain)
                                     <tr>
-                                        <td class="serial">{{ $key + 1 }}</td>
 
-                                        <td>  <span class="name">{{ $complain->caption }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->location }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->user->name }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->created_at }}</span> </td>
+                                            <td class="serial">{{ $key + 1 }}</td>
+                                            <td>
+{{--                                                <a href="/complain/{{ $complain->id }}/{{ $complain->caption }}">--}}
+                                                <span class="name">{{ $complain->caption }}</span>
+{{--                                                </a>--}}
+                                            </td>
+
+                                            <td>  <span class="name">{{ $complain->location }}</span> </td>
+                                            <td>  <span class="name">{{ $complain->user->name }}</span> </td>
+                                            <td>  <span class="name">{{ $complain->created_at }}</span> </td>
 
                                     </tr>
                                 @endforeach
@@ -39,6 +44,7 @@
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->
+                {{$complains->links()}}
             </div>  <!-- /.col-lg-8 -->
         </div>
     </div>

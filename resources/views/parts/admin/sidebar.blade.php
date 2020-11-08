@@ -10,7 +10,7 @@
 
 
             <li class="@if (\Request::is('showcases')) active @endif">
-                <a href="/showcases"><i class="menu-icon fa fa-laptop"></i>Showcases</a>
+                <a href="/showcases"><i class="menu-icon ti-layers"></i>Showcases</a>
             </li>
 
             <li  class="@if (\Request::is('projects')) active @endif">

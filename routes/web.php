@@ -57,12 +57,14 @@ Route::group(['middleware' => ['auth','activated']], function (){
         Route::post('/assign', 'ProjectsController@assign');
         Route::get('/projects', 'ProjectsController@index');
         Route::get('/view-complains', 'ComplainController@index');
+        Route::get('/complain/{complain}/{caption}', 'ComplainController@show');
         Route::post('/projects', 'ProjectsController@store');
         Route::post('/set-project', 'ProjectsController@update');
         Route::get('/edit-{title}-{id}-{location}', 'ProjectsController@edit');
 
         Route::post('/showcase', 'ShowcaseController@store');
         Route::get('/showcases', 'ShowcaseController@index');
+        Route::delete('/remove-showcase/{showcase}', 'ShowcaseController@destroy');
 
         Route::get('/applications', 'ApplicationsController@index');
         Route::post('/toggle-status', 'HomeController@toggle');

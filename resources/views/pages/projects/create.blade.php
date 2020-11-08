@@ -22,8 +22,13 @@
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Choose  a valid location">
                     <span class="label-input100">Location</span>
-                    <input class="input100" type="text" name="location" placeholder="Enter project location">
-                    <span class="focus-input100"></span>
+{{--                    <input class="input100" type="text" name="location" placeholder="Enter project location">--}}
+                    <select name="location" id="" class="form-control" required>
+                        @foreach(counties() as $county)
+                            <option value="{{ $county['name'] }}"> {{ $county['name'] }} </option>
+                        @endforeach
+                    </select>
+{{--                    <span class="focus-input100"></span>--}}
                 </div>
 
 

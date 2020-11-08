@@ -24,10 +24,10 @@
                     <div class="carousel-item">
                         <div class="project-showcase">
                             <div class="project-images">
-                                <div class="img-before" style="background-image: url({{ '/storage/showcases/'.$showcase->before_img }})">
+                                <div class="img-before" style="background: url( '/storage/showcases/{{$showcase->before_img }}') center">
                                     <div class="caption">BEFORE</div>
                                 </div>
-                                <div class="img-after" style="background-image: url({{  '/storage/showcases/'.$showcase->after_img }})">
+                                <div class="img-after" style="background: url('/storage/showcases/{{ $showcase->after_img }}') center">
                                     <div class="caption">AFTER</div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Lets Go through our journey.</h3>
             </div>
             <ul class="timeline">
                 <li>
@@ -164,10 +164,7 @@
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
                         <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Design Engineer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        <p class="text-muted">Lead  Engineer</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -175,9 +172,6 @@
                         <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
                         <h4>Larry Parker</h4>
                         <p class="text-muted">Lead Development Planner</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -185,9 +179,6 @@
                         <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="" />
                         <h4>Diana Petersen</h4>
                         <p class="text-muted">Project Team Leader</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>

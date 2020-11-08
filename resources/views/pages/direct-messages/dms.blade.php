@@ -37,8 +37,10 @@
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->
+
                     </div>
                 </div> <!-- /.card -->
+                {{ $messages->links() }}
             </div>  <!-- /.col-lg-8 -->
         </div>
     </div>

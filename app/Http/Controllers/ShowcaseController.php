@@ -110,6 +110,14 @@ class ShowcaseController extends Controller
      */
     public function destroy(Showcase $showcase)
     {
-        //
+        if($showcase->delete()){
+            toast('Showcase Deleted!','success')->position('top')->autoClose(3500);
+
+        }else{
+            toast('Failed To Delete Showcase!','error')->position('top')->autoClose(3500);
+
+        }
+
+        return redirect()->back();
     }
 }

@@ -65,7 +65,11 @@
                       @csrf
                       <div class="form-group">
                           <label for="">Location</label>
-                          <input type="text" class="form-control" name="location" required>
+                          <select name="location" id="" class="form-control" required>
+                              @foreach(counties() as $county)
+                                  <option value="{{ $county['name'] }}"> {{ $county['name'] }} </option>
+                              @endforeach
+                          </select>
                       </div>
                       <div class="form-group">
                           <label for="">CV</label>

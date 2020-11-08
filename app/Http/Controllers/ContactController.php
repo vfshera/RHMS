@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $messages = Contact::orderBy('created_at','DESC')->get();
+        $messages = Contact::orderBy('created_at','DESC')->paginate(7);
 
         return view('pages.direct-messages.dms' , compact('messages'));
     }
