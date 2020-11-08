@@ -32,6 +32,7 @@ Route::get('/projects-pending', function () {
 
 
 Route::post('/register-users', [\App\Http\Controllers\Auth\RegisterController::class , 'registerUsers']);
+Route::post('/send-message', [\App\Http\Controllers\ContactController::class , 'store']);
 
 
 Auth::routes();
@@ -53,7 +54,7 @@ Route::group(['middleware' => ['auth','activated']], function (){
     //admin routes
     Route::group(['middleware' => ['access:0']], function(){
         Route::get('/create-project', 'ProjectsController@create');
-        Route::get('/assign-project', 'ProjectsController@show');
+        Route::post('/assign', 'ProjectsController@assign');
         Route::get('/projects', 'ProjectsController@index');
         Route::get('/view-complains', 'ComplainController@index');
         Route::post('/projects', 'ProjectsController@store');
@@ -69,6 +70,9 @@ Route::group(['middleware' => ['auth','activated']], function (){
 
         Route::get('/engineers', 'EngineersController@index');
         Route::get('/contractors', 'ContractorsController@index');
+
+        Route::get('/messages', [\App\Http\Controllers\ContactController::class , 'index']);
+
     });
 
 

@@ -58,6 +58,13 @@
                 </a>
             </li>
 
+            <li class="@if (\Request::is('messages')) active @endif">
+                <a href="/messages" class="">
+                    <i class="menu-icon ti-email"></i>
+                    Direct Messages
+                </a>
+            </li>
+
             @endadmin
 
 

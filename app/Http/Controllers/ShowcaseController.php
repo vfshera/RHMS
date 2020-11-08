@@ -56,18 +56,16 @@ class ShowcaseController extends Controller
 
                 toast('Showcase Posted!','success')->position('top')->autoClose(3500);
 
-                return redirect()->back();
-
             }else{
                 toast('Failed To Post Showcase!','error')->position('top')->autoClose(3500);
 
-                return redirect()->back();
             }
         }else{
             toast('Action Unavailable!','error')->position('top')->autoClose(3500);
 
-            return redirect()->back();
         }
+
+        return redirect()->back();
     }
 
     /**

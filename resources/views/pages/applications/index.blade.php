@@ -8,7 +8,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Engineers</h4>
+                        <h4 class="box-title">Applications</h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -35,12 +35,13 @@
                                                     @if( $application->project->progress == '1' )
                                                               <span class="name">CLOSED</span>
                                                         @elseif( $application->project->progress == '0' && $application->project->engineer_id != $application->user->id)
-                                                            <span class="badge badge-pending"   onclick="event.preventDefault();
+                                                            <span style="cursor: pointer"  class="badge badge-pending"   onclick="event.preventDefault();
                                                                  document.getElementById('toggle-status').submit();">ASSIGN</span>
                                                             <form  action="/assign" method="POST" id="toggle-status">
                                                                 @csrf
                                                                 <input type="text" value="{{ $application->project->id }}" hidden name="project_id">
                                                                 <input type="text" value="{{ $application->user->id }}" hidden name="user_id">
+                                                                <input type="text" value="{{ $application->user->access }}" hidden name="access">
                                                             </form>
                                                          @elseif( $application->project->progress == '0' && $application->project->engineer_id == $application->user->id)
 
@@ -50,12 +51,13 @@
                                                     @if( $application->project->progress == '1' )
                                                         <span class="name">CLOSED</span>
                                                     @elseif( $application->project->progress == '0' && $application->project->contractor_id != $application->user->id)
-                                                        <span class="badge badge-pending"   onclick="event.preventDefault();
+                                                        <span style="cursor: pointer" class="badge badge-pending"   onclick="event.preventDefault();
                                                          document.getElementById('toggle-status').submit();">ASSIGN</span>
                                                         <form  action="/assign" method="POST" id="toggle-status">
                                                             @csrf
                                                             <input type="text" value="{{ $application->project->id }}" hidden name="project_id">
                                                             <input type="text" value="{{ $application->user->id }}" hidden name="user_id">
+                                                            <input type="text" value="{{ $application->user->access }}" hidden name="access">
                                                         </form>
                                                     @elseif( $application->project->progress == '0' && $application->project->contractor_id == $application->user->id)
                                                         <span class="badge badge-pending" >ASSIGNED</span>

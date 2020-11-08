@@ -8,7 +8,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Complains </h4>
+                        <h4 class="box-title">Direct Messages </h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -16,21 +16,21 @@
                                 <thead>
                                 <tr>
                                     <th class="serial">#</th>
-                                    <th class="avatar">Caption</th>
-                                    <th>Location</th>
-                                    <th>Sender</th>
-                                    <th>Received</th>
+                                    <th class="avatar">Sender</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($complains as $key => $complain)
+                                @foreach($messages as $key => $msg)
                                     <tr>
                                         <td class="serial">{{ $key + 1 }}</td>
 
-                                        <td>  <span class="name">{{ $complain->caption }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->location }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->user->name }}</span> </td>
-                                        <td>  <span class="name">{{ $complain->created_at }}</span> </td>
+                                        <td>  <span class="name">{{ $msg->name }}</span> </td>
+                                        <td>  <span class="name">{{ $msg->phone }}</span> </td>
+                                        <td>  <span class="name">{{ $msg->email }}</span> </td>
+                                        <td>  <span class="name">{{ $msg->message }}</span> </td>
 
                                     </tr>
                                 @endforeach
@@ -44,3 +44,4 @@
     </div>
     <!-- /.contractors -->
 @endsection
+

@@ -36,7 +36,7 @@
                                            <td>
                                                @if( $contractor->status == 1 )
 
-                                                   <span class="badge badge-complete"   onclick="event.preventDefault();
+                                                   <span style="cursor: pointer" class="badge badge-complete"   onclick="event.preventDefault();
                                                      document.getElementById('toggle-status').submit();">ACTIVE </span>
                                                    <form  action="/toggle-status" method="POST" id="toggle-status">
                                                        @csrf
@@ -46,7 +46,7 @@
 
                                                @elseif($contractor->status == 0)
 
-                                                   <span class="badge badge-pending"  onclick="event.preventDefault();
+                                                   <span style="cursor: pointer"  class="badge badge-pending"  onclick="event.preventDefault();
                                                      document.getElementById('toggle-status').submit();">INACTIVE </span>
                                                    <form action="/toggle-status" method="POST" id="toggle-status">
                                                        @csrf

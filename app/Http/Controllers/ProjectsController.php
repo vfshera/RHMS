@@ -78,9 +78,37 @@ class ProjectsController extends Controller
     }
 
 
-    public function show(Project $project)
+    public function assign(Request $request)
     {
-        return view('pages.projects.assign');
+        $data = $request->validate([
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'access' => 'required',
+        ]);
+
+        $project = Project::findOrFail($data['project_id']);
+
+        $msg = "";
+
+       if($data['access'] == 1){
+
+           $project->engineer_id = $data['user_id'];
+           $msg = "Engineer Assigned!";
+
+       }else if($data['access'] == 2){
+
+           $project->contractor_id = $data['user_id'];
+           $msg = "Contractor Assigned!";
+
+       }
+
+        if($project->save()){
+            toast($msg,'success')->position('top')->autoClose(4500);
+        }else{
+            toast('Failed To Assign!','error')->position('top')->autoClose(4500);
+        }
+
+       return redirect()->back();
     }
 
 
@@ -91,7 +119,7 @@ class ProjectsController extends Controller
         $engineers = User::where('access' , 1)->orderBy('name' , 'DESC')->get();
         $contractors = User::where('access' , 2)->orderBy('name' , 'DESC')->get();
 
-        $show = Showcase::where('project_id', $project->id)->first()->count();
+        $show = (Showcase::where('project_id', $project->id)->first()) ? Showcase::where('project_id', $project->id)->first()->count() : 0;
 
 
 
