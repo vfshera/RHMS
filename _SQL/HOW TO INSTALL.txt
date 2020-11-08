@@ -1,0 +1,11 @@
+GO TO XAMPP
+
+CREATE DATABASE rhms254
+
+Import rhms254.sql.zip into the database
+
+
+EXTRACT THE PROJECT RHMS.ZIP INTO YOUR HTDOCS
+
+
+THANKS

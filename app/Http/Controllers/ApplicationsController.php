@@ -63,7 +63,7 @@ class ApplicationsController extends Controller
             if(
             Application::create([
                 'project_id' => $data['project_id'],
-                'type' => (auth()->user()->access == 1) ? 'ENGINEER' : 'CONSTRUCTOR',
+                'type' => (auth()->user()->access == 1) ? 'ENGINEER' : 'CONTRACTOR',
                 'user_id' => auth()->user()->id,
                 'user_access' => auth()->user()->access,
             ])

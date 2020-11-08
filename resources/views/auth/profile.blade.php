@@ -68,7 +68,7 @@
                           <select name="location" id="" class="form-control" required>
                               @foreach(counties() as $county)
                                   <option value="{{ $county['name'] }}"> {{ $county['name'] }} </option>
-                              @endforeach
+                              @endforeachwe
                           </select>
                       </div>
                       <div class="form-group">
