@@ -29042,6 +29042,18 @@ a.text-dark:focus {
   }
 }
 
+.front-round-img {
+  width: 220px;
+  height: 220px;
+}
+
+.about-round-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+}
+
 .checked {
   color: #fff6a1 !important;
 }

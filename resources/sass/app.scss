@@ -26,6 +26,19 @@
 @import '../create project form/css/util.css';
 @import '../create project form/css/main.css';
 
+.front-round-img{
+    width: 220px;
+    height: 220px;
+}
+
+.about-round-img{
+    //width: 150px;
+    //height: 150px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-self: center;
+}
 
 .checked{
     color: #fff6a1 !important;

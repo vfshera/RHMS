@@ -60,7 +60,7 @@
             <div class="row text-center">
                 <div class="col-md-4">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle front-round-img" src="images/roads/croad.jpg" alt="" /></div>
 
                     </li>
                     <h4 class="my-3">Service delivery</h4>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-4">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle front-round-img" src="images/roads/surveyeng.jpg" alt="" /></div>
 
                     </li>
                     <h4 class="my-3">Experienced Engineers</h4>
@@ -77,7 +77,7 @@
                 <div class="col-md-4">
                     <!-- <span class="fa-stack fa-4x"> -->
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle front-round-img" src="images/roads/broad.jpg" alt="" /></div>
 
                     </li>
                     <!-- </span> -->
@@ -97,7 +97,7 @@
             </div>
             <ul class="timeline">
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="" /></div>
+                    <div class="timeline-image"><img class="rounded-circle about-round-img" src="images/roads/road.jpg" alt="" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>2009-2011</h4>
@@ -107,7 +107,7 @@
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                    <div class="timeline-image"><img class="rounded-circle about-round-img" src="images/roads/wroad.jpg" alt="" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>March 2011</h4>
@@ -117,7 +117,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                    <div class="timeline-image"><img class="rounded-circle about-round-img" src="images/roads/uouroad.jpg" alt="" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>December 2012</h4>
@@ -127,7 +127,7 @@
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
+                    <div class="timeline-image"><img class="rounded-circle about-round-img" src="images/roads/vproad.jpg" alt="" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>July 2014</h4>
